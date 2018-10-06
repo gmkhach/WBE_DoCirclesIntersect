@@ -47,21 +47,12 @@ namespace WBE_DoCirclesIntersect
             } while (true);
         }
 
-        private static void DoCirclesIntersect(Circle circle1, Circle circle2)
+        private static void DoCirclesIntersect(Circle c1, Circle c2)
         {
-            double distance = Math.Sqrt(Math.Pow(circle1.GetCenter()[1] - circle2.GetCenter()[1], 2) + Math.Pow(circle1.GetCenter()[0] - circle2.GetCenter()[0], 2));
-            if (distance == circle1.GetRadius() + circle2.GetRadius() || distance == Math.Abs(circle1.GetRadius() - circle2.GetRadius()))
-            {
-                Console.WriteLine("\nThe cicles are tangent to each other");
-            }
-            else if (distance < circle1.GetRadius() + circle2.GetRadius())
-            {
-                Console.WriteLine("\nThe circles intersect");
-            }
-            else
-            {
-                Console.WriteLine("\nThe circles do not intersect and are not tanget to one another");
-            }
+            double dist = Math.Sqrt(Math.Pow(c1.GetCenter()[1] - c2.GetCenter()[1], 2) + Math.Pow(c1.GetCenter()[0] - c2.GetCenter()[0], 2));
+            Console.WriteLine("\n" + (dist == c1.GetRadius() + c2.GetRadius() || dist == Math.Abs(c1.GetRadius() - c2.GetRadius()) ? "Thecicles are tangent to each other" : 
+                                     (dist < c1.GetRadius() + c2.GetRadius() ? "The circles intersect" : "The cicles do not intersect and are not tangent to one another")) 
+                             );
         }
     }
 }
