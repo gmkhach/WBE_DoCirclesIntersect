@@ -34,8 +34,8 @@ namespace WBE_DoCirclesIntersect
                     Console.Write("\nEnter the radius of the 2st circle\n\n>>> ");
                     double radius2 = Convert.ToDouble(Console.ReadLine().Trim());
                     Circle circle2 = new Circle(center2, radius2);
-
-                    Console.WriteLine("\n" + DoCirclesIntersect(circle1, circle2));
+                    // call the DoCirclesIntersect method to help building the output string
+                    Console.WriteLine("\nThe cicles " + DoCirclesIntersect(circle1, circle2));
                 }
                 catch (Exception ex)
                 {
@@ -52,8 +52,8 @@ namespace WBE_DoCirclesIntersect
         {
             // Nested Ternary operator expression
             double dist = Math.Sqrt(Math.Pow(c1.GetCenter()[1] - c2.GetCenter()[1], 2) + Math.Pow(c1.GetCenter()[0] - c2.GetCenter()[0], 2));
-            return (dist == c1.GetRadius() + c2.GetRadius() || dist == Math.Abs(c1.GetRadius() - c2.GetRadius()) ? "Thecicles are tangent to each other" : 
-                   (dist < c1.GetRadius() + c2.GetRadius() && dist > Math.Abs(c1.GetRadius() - c2.GetRadius())? "The circles intersect" : "The cicles do not intersect and are not tangent to one another"));
+            return (dist == c1.GetRadius() + c2.GetRadius() || dist == Math.Abs(c1.GetRadius() - c2.GetRadius()) ? "are tangent to each other" : 
+                   (dist < c1.GetRadius() + c2.GetRadius() && dist > Math.Abs(c1.GetRadius() - c2.GetRadius())? "intersect" : "do not intersect and are not tangent to one another"));
         }
     }
 }
